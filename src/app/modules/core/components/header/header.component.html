@@ -2,13 +2,18 @@
 <section class="hero is-medium header">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-light">
-        Hi, I'm Michael
-      </h1>
-      <h2 class="subtitle has-text-light">
-        I'm a professional Web Developer and Hobbyist 3D modeller.
-      </h2>
-      <button appButton [color]="'accent'">Check out some of my work!</button>
+      <div class="header-content">
+        <div>
+          <h1 class="title has-text-light">
+            Hi, I'm Michael
+          </h1>
+          <h2 class="subtitle has-text-light">
+            I'm a professional Web Developer and Hobbyist 3D modeller.
+          </h2>
+          <button appButton [color]="'accent'">Check out some of my work!</button>
+        </div>
+        <app-home-page-model [height]="300" [width]="560"></app-home-page-model>
+      </div>
     </div>
   </div>
 </section>
