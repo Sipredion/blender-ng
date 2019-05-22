@@ -1,0 +1,19 @@
+<section class="main">
+  <div class="header-action-row">
+    <ng-container *ngFor="let item of actionRowItems">
+      <a [href]="item.href" target="_blank">
+        <button appButton color="accent">{{item.title}}</button>
+      </a>
+    </ng-container>
+  </div>
+  <div class="logo-box">
+    <!--// REFACTOR: Make this an interactive model rather than an image-->
+    <img src="../../../../../assets/renders/abstract_flowerOfLife_two.png" alt="Flower of Life" width="600">
+  </div>
+  <h1 class="is-size-1 has-text-shadow has-text-light">I'm <span class="has-text-primary">Michael</span></h1>
+  <h3 class="is-size-3 has-text-shadow has-text-light">
+    A professional web developer and hobbyist 3D modeller
+  </h3>
+  <hr class="app-divider">
+  <button appButton color="accent">Check out some of my work!</button>
+</section>

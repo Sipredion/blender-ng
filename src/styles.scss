@@ -2,3 +2,13 @@
 
 // Directives Styles
 @import "scss/directives/app-button";
+
+
+// Utils
+@import "scss/utils/all-utils";
+
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}

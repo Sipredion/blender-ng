@@ -1,17 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import { NavbarComponent } from './components/header/navbar/navbar.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
+import {FrontPageComponent} from './components/front-page/front-page.component';
 
 @NgModule({
-  declarations: [HeaderComponent, NavbarComponent],
+  declarations: [
+    FrontPageComponent
+  ],
   exports: [
-    HeaderComponent
+    FrontPageComponent
   ],
   imports: [
     CommonModule,
     SharedModule
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}

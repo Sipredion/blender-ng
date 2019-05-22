@@ -11,6 +11,7 @@ export class ButtonDirective implements OnInit {
 
   private buttonColor: string;
   private buttonFocusColor;
+  private borderColor: string;
   private device: string;
 
   constructor(private el: ElementRef,
@@ -90,6 +91,10 @@ export class ButtonDirective implements OnInit {
       'box-shadow',
       `0 2px 4px rgba(${this.buttonColor}, 0.5), 0 0 1px rgba(${this.buttonColor}, 0.13)`
     );
+    if (this.borderColor !== null || this.borderColor !== '' || this.borderColor !== undefined) {
+      this.renderer.setStyle(el, 'border', `1px solid rgb(${this.borderColor})`);
+      this.renderer.setStyle(el, 'text-shadow', `0 1px 2px rgba(0, 0, 0, 0.2)`);
+    }
   }
 
   protected setButtonColor(color: string, disabled: boolean) {
@@ -106,6 +111,11 @@ export class ButtonDirective implements OnInit {
         case 'warn':
           this.buttonColor = '241, 59,  6';
           this.buttonFocusColor = '148, 33,  0';
+          break;
+        case 'light':
+          this.buttonColor = '255, 255, 255';
+          this.borderColor = '255, 255, 255';
+          this.buttonFocusColor = '200, 200, 200';
           break;
         default:
           this.buttonColor = '61, 61, 61';

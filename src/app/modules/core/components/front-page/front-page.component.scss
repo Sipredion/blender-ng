@@ -1,0 +1,26 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-action-row {
+  width: 85%;
+  margin: .75rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-box {
+  border-radius: 50%;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 18rem;
+  height: 18rem;
+}
