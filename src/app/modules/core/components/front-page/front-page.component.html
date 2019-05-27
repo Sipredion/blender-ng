@@ -6,9 +6,14 @@
       </a>
     </ng-container>
   </div>
+  <!--  <button appButton color="warn" class="login-button" (click)="isOpen = true">Admin Login</button>-->
   <div class="logo-box">
     <!--// REFACTOR: Make this an interactive model rather than an image-->
     <img src="../../../../../assets/renders/abstract_flowerOfLife_two.png" alt="Flower of Life" width="600">
+    <button class="hidden-button one" (click)="determineSecret('one')"></button>
+    <button class="hidden-button two" (click)="determineSecret('two')"></button>
+    <button class="hidden-button three" (click)="determineSecret('three')"></button>
+    <button class="hidden-button four" (click)="determineSecret('four')"></button>
   </div>
   <h1 class="is-size-1 has-text-shadow has-text-light">I'm <span class="has-text-primary">Michael</span></h1>
   <h3 class="is-size-3 has-text-shadow has-text-light">
@@ -17,3 +22,52 @@
   <hr class="app-divider">
   <button appButton color="accent">Check out some of my work!</button>
 </section>
+
+<div class="modal" [class.is-active]="isOpen">
+  <div class="modal-background" (click)="isOpen = false"></div>
+  <div class="modal-content" *ngIf="isUser; else userQuestionTemplate">
+    <app-sign-in (close)="handleModalClose($event)"></app-sign-in>
+  </div>
+  <button class="modal-close is-large" (click)="isOpen = false"></button>
+</div>
+
+<ng-template #goAway>
+  <div class="box box-dark modal-content">
+    <h1 class="is-size-1 has-text-danger has-text-centered">YOU DON'T BELONG HERE</h1>
+    <p class="has-text-centered">Unfortunately, you have made an incorrect decision. That's rather disappointing
+      really...</p>
+    <div class="action-buttons">
+      <button appButton color="warn" (click)="handleModalClose(false)">Send Me Away In Shame</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userQuestionTemplate>
+  <div class="box box-dark modal-content" *ngIf="paperTrail; else goAway">
+    <header class="card-head">
+      <p class="modal-card-title has-text-centered">You Found a SECRET!</p>
+    </header>
+    <div class="card-content">
+      <div class="action-buttons">
+        <button appButton
+                color="{{'' | randomColor}}"
+                class="button-xlg"
+                (click)="this.paperTrail = false;">
+          {{'' | fakeQuestion}}
+        </button>
+        <button appButton
+                color="{{'' | randomColor}}"
+                class="button-xlg"
+                (click)="this.paperTrail = false;">
+          {{'' | fakeQuestion}}
+        </button>
+        <button appButton
+                color="{{'' | randomColor}}"
+                class="button-xlg"
+                (click)="this.paperTrail = false;">
+          {{'' | fakeQuestion}}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

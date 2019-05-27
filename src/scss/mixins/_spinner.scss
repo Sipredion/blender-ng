@@ -1,0 +1,68 @@
+@mixin spinner(
+  $size: 150px,
+  $c1: rgb(104,56,106),
+  $c2: rgb(255, 228, 32),
+  $c3: rgb(61, 175, 255)
+) {
+  $margin: $size/2;
+
+  @-webkit-keyframes spin{
+    0% { transform:rotate(0) }
+    100% { transform:rotate(360deg) }
+  }
+
+  @-moz-keyframes spin{
+    0% { -moz-transform:rotate(0) }
+    100% { -moz-transform:rotate(360deg) }
+  }
+
+  @keyframes spin{
+    0% {transform:rotate(0) }
+    100% {transform:rotate(360deg) }
+  }
+
+  .spinner {
+    position:relative;
+    width: $size + 20;
+    height: $size + 20;
+    z-index:1003;
+    background: transparent;
+    overflow:hidden;
+    div:first-child {
+      display: block;
+      position: relative;
+      top: 50%;
+      left: 5%;
+      width: $size;
+      height: $size;
+      margin: -$margin 0 0 -$margin;
+      border-radius: 50%;
+      box-shadow: 0 3px 3px 0 rgba($c1, 1);
+      transform: translate3d(0,0,0);
+      animation: spin 1s linear infinite
+    }
+    div:first-child:after,
+    div:first-child:before {
+      content: '';
+      position: absolute;
+      border-radius: 50%
+    }
+    div:first-child:before {
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      box-shadow: 0 3px 3px 0 rgba($c2, 1);
+      -webkit-animation: spin 3s linear infinite;
+      animation: spin 2.8s linear infinite
+    }
+    div:first-child:after {
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      box-shadow: 0 3px 3px 0 rgba($c3, 1);
+      animation: spin .4s linear infinite reverse
+    }
+  }
+}

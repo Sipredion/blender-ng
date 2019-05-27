@@ -1,0 +1,64 @@
+<section class="sign-in">
+  <header class="card-header">
+    <p class="card-header-title is-centered">Sign In</p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <app-spinner [loading]="isLoading">
+        <form [formGroup]="loginForm" (ngSubmit)="authenticate(loginForm.value)">
+          
+          <label class="label" for="email">
+            Email Address
+          </label>
+          <div class="field has-addons">
+            <div class="control w-100">
+              <input
+                class="input"
+                id="email"
+                type="text"
+                formControlName="email"
+              >
+            </div>
+            <div class="control">
+              <a class="button is-static">
+                @notForYou.com
+              </a>
+            </div>
+          </div>
+          
+          <label class="label" for="password">
+            Password
+          </label>
+          <div class="field has-addons">
+            <div class="control w-100">
+              <input
+                class="input"
+                id="password"
+                [type]="showPassword ? 'text' : 'password'"
+                formControlName="password"
+              >
+            </div>
+            <div class="control">
+              <button class="button" type="button" (click)="showPassword = !showPassword">
+                <ng-container *ngIf="showPassword; then show; else hide"></ng-container>
+              </button>
+            </div>
+          </div>
+          
+          <div class="buttons">
+            <button appButton color="warn" class="button-lg" type="button" (click)="cancelLogin()">Cancel</button>
+            <button appButton color="primary" class="button-lg" type="submit">Login</button>
+          </div>
+        
+        </form>
+      </app-spinner>
+    </div>
+  </div>
+</section>
+
+<ng-template #show>
+  <i class="far fa-eye"></i>
+</ng-template>
+<ng-template #hide>
+  <i class="far fa-eye-slash"></i>
+</ng-template>

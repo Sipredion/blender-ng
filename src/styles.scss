@@ -1,8 +1,9 @@
 @import "scss/theme/bulma";
+// Components
+@import "scss/components/all";
 
 // Directives Styles
 @import "scss/directives/app-button";
-
 
 // Utils
 @import "scss/utils/all-utils";
