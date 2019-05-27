@@ -11,7 +11,7 @@ import {RenderService} from '../../services/render.service';
 })
 export class HomePageModelComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('renderContainer') renderContainer: ElementRef;
+  @ViewChild('renderContainer', { static: true }) renderContainer: ElementRef;
 
   @Input() height = window.innerHeight - 50;
   @Input() width = window.innerWidth - 100;
